@@ -30,10 +30,17 @@ void loop() {
     while (1)
     {
       atas();
-      if(digitalWrite(nc_atas) == HIGH);break;
+      if(digitalRead(nc_atas) == HIGH);break;
+    }
+  }
+  else if (distance > 5) {
+    while (1)
+    {
+      bawah();
+      if(digitalRead(nc_bawah) == HIGH);break;
     }
   }
   else {
-    bawah();
+    stop();
   }
 }

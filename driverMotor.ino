@@ -2,7 +2,7 @@ void setMotor()
 {
   pinMode(in3, OUTPUT);
   pinMode(in4, OUTPUT);
-  pinMode(relay, OUTPUT);
+  pinMode(in1, OUTPUT);
   pinMode(nc_atas, INPUT_PULLUP);
   pinMode(nc_bawah, INPUT_PULLUP);
 }
@@ -26,14 +26,16 @@ void atas()
 {
   digitalWrite(in3, 1);
   digitalWrite(in4, 0);
-  //  digitalWrite(relay, 1);
+  //  digitalWrite(int1, 1);
+  pintu = "Close";
 }
 
 void bawah()
 {
   digitalWrite(in3, 0);
   digitalWrite(in4, 1);
-  //  digitalWrite(relay, 0);
+  //  digitalWrite(in1, 0);
+  pintu. = "Open";
 }
 
 void stop()
