@@ -1,5 +1,5 @@
 #include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(0x27, 16, 2); // set the LCD address to 0x27 for a 16 chars and 2 line display
+LiquidCrystal_I2C lcd(0x27, 16, 2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
 
 #define in3 D3
 #define in4 D4
@@ -9,7 +9,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2); // set the LCD address to 0x27 for a 16 char
 #define nc_atas D0
 #define nc_bawah D8
 
-long duration, distance; // Duration used to calculate distance
+long duration, distance;  // Duration used to calculate distance
 String pintu = "Close";
 void setup() {
   // put your setup code here, to run once:
@@ -27,20 +27,26 @@ void loop() {
   bacaUltra();
   display();
   if (distance < 5) {
-    while (1)
-    {
-      atas();
-      if(digitalRead(nc_atas) == HIGH);break;
+    if (pintu == "Close") {
+      while (1) {
+        atas();
+        if (digitalRead(nc_atas) == LOW)
+          ;
+        break;
+      }
+    } else {
+      stop();
     }
-  }
-  else if (distance > 5) {
-    while (1)
-    {
-      bawah();
-      if(digitalRead(nc_bawah) == HIGH);break;
+  } else if (distance > 5) {
+    if (pintu == "Open") {
+      while (1) {
+        bawah();
+        if (digitalRead(nc_bawah) == LOW)
+          ;
+        break;
+      }
+    } else {
+      stop();
     }
-  }
-  else {
-    stop();
   }
 }
