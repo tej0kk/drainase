@@ -26,16 +26,16 @@ void atas()
 {
   digitalWrite(in3, 1);
   digitalWrite(in4, 0);
-  //  digitalWrite(int1, 1);
-  pintu = "Close";
+   digitalWrite(int1, 0);
+  pintu = "Open";
 }
 
 void bawah()
 {
   digitalWrite(in3, 0);
   digitalWrite(in4, 1);
-  //  digitalWrite(in1, 0);
-  pintu = "Open";
+   digitalWrite(in1, 1);
+  pintu = "Close";
 }
 
 void stop()
